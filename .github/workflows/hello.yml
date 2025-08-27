@@ -10,3 +10,11 @@ jobs:
     steps: 
       - name: Say Hello
         run: echo "Hello World"
+  execute:
+    name: Execute shell script
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Script
+        run: |
+          now=$(date "+%Y-%m-%d %H:%M:%S")
+          echo "Hello $USER, it is $now!"
