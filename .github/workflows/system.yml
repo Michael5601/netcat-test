@@ -17,10 +17,10 @@ jobs:
       - name: Show home directory
         run: ls -la ~
 
-   directory:
-     name: Working Directory
-     runs-on: ubuntu-latest
-     steps:
-       - run: echo "$PWD" && ls -la
-       - run: mktemp --tempdir="$PWD"
-       - run: ls -la
+  directory:
+    name: Working Directory
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$PWD" && ls -la
+      - run: mktemp --tempdir="$PWD"
+      - run: ls -la
