@@ -1,8 +1,12 @@
+name: Hello World
+
 on: 
   push:
 
 jobs:
   greet:
+    name: Greet
     runs-on: ubuntu-latest
     steps: 
-      - run: echo "Hello World"
+      - name: Say Hello
+        run: echo "Hello World"
