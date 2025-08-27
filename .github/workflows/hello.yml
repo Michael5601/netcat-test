@@ -1,0 +1,8 @@
+on: 
+  push:
+
+jobs:
+  greet:
+    runs-on: self-hosted
+    steps: 
+      - run: echo "Hello World"
