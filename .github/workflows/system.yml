@@ -22,5 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "$PWD" && ls -la
-      - run: mktemp --tempdir="$PWD"
+      - run: mktemp --tmpdir="$PWD"
       - run: ls -la
