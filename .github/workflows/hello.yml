@@ -18,3 +18,12 @@ jobs:
         run: |
           now=$(date "+%Y-%m-%d %H:%M:%S")
           echo "Hello $USER, it is $now!"
+
+      - name: Python Script
+        shell: python
+        run: |
+          import os
+          from datetime import datetime
+
+          user = os.environ.get("USER") or os.environ.get("USERNAME") or "runner"
+          print(f"Hello {user}, it is {datetime.now()}!")
