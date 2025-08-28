@@ -1,7 +1,7 @@
 name: System Information
 
 on:
-  push:
+  workflow_call:
 
 defaults:
   run:
