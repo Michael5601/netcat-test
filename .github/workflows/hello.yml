@@ -1,8 +1,28 @@
 name: Hello World
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+    inputs:
+      greeting:
+        description: Greeting formula
+        type: choice
+        options:
+          - Guten Tag
+          - Bonjour
+          - Ciao
+          - Hola
+      upload:
+        description: Upload logs?
+        type: boolean
+        default: false
   workflow_call:
+    inputs:
+      greeting:
+        type: string
+        required: true
+      upload:
+        type: boolean
+        default: true
 
 defaults:
   run:
@@ -12,9 +32,18 @@ jobs:
   greet:
     name: Greet
     runs-on: ubuntu-latest
-    steps: 
+    env:
+      GREETING: ${{ inputs.greeting }}
+    steps:
       - name: Say Hello
-        run: echo "Hello World"
+        run: echo "Hello $GREETING" | tee hello.log
+      - name: Upload Artifacts
+        if: ${{ inputs.upload }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-log
+          path: |
+             **/*.log
   execute:
     name: Execute shell script
     runs-on: ubuntu-latest

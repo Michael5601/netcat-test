@@ -16,7 +16,8 @@ jobs:
   hello:
     name: Hello
     uses: ./.github/workflows/hello.yml
-
+    with:
+      greeting: Hi
   system:
     name: System
     if: ${{ false }}
