@@ -1,6 +1,7 @@
 name: Hello World
 
-on: 
+on:
+  workflow_dispatch: 
   workflow_call:
 
 defaults:

@@ -4,6 +4,10 @@ name: On Push
 on:
   push:
 
+concurrency:
+  group: ’${{ github.workflow }}-${{ github.ref }}’
+  cancel-in-progress: true
+
 defaults:
   run:
     shell: bash
@@ -15,4 +19,9 @@ jobs:
 
   system:
     name: System
+    if: ${{ false }}
     uses: ./.github/workflows/system.yml
+
+  artifacts:
+    name: Upload Artifacts
+    uses: ./.github/workflows/upload-artifacts.yml

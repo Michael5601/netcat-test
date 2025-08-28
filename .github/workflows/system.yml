@@ -1,6 +1,7 @@
 name: System Information
 
 on:
+  workflow_dispatch:
   workflow_call:
 
 defaults:

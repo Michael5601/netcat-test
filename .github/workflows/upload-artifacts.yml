@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  Generate_and_upload_artifacts:
+    name: Generate and Upload Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Logs
+        run: echo "Hello World!" | tee greet_user.log
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: |
+            **/*.log
