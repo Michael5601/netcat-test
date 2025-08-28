@@ -35,3 +35,11 @@ jobs:
         continue-on-error: true
         run: this-does-not-exist
           echo "Hello Failure"
+
+      - name: Pipe Failure
+        run: this-does-not-exist | echo "Hello Failure!"
+
+      - name: Pipe Failure (bash)
+        shell: bash
+        run: this-does-not-exist | echo "Hello Failure!"
+
