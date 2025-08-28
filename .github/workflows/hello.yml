@@ -3,6 +3,10 @@ name: Hello World
 on: 
   push:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   greet:
     name: Greet
@@ -27,19 +31,3 @@ jobs:
 
           user = os.environ.get("USER") or os.environ.get("USERNAME") or "runner"
           print(f"Hello {user}, it is {datetime.now()}!")
-  failure:
-    name: Script fails
-    runs-on: ubuntu-latest
-    steps:
-      - name: Make Script fail
-        continue-on-error: true
-        run: this-does-not-exist
-          echo "Hello Failure"
-
-      - name: Pipe Failure
-        run: this-does-not-exist | echo "Hello Failure!"
-
-      - name: Pipe Failure (bash)
-        shell: bash
-        run: this-does-not-exist | echo "Hello Failure!"
-

@@ -3,6 +3,10 @@ name: System Information
 on:
   push:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   system:
     name: System Information
