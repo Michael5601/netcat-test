@@ -1,0 +1,21 @@
+name: Auto PR on new branch
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  auto-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: sudo apt-get install -y gh
+      - run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+      - run: |
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "Auto PR"
+            --body "This pull request was created automatically."
