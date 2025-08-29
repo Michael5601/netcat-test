@@ -12,6 +12,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: sudo apt-get install -y gh
-      - run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+      - run: echo "${{ secrets.RUNNER_TOKEN }}" | gh auth login --with-token
       - run: |
           gh pr create --title "Auto PR" --body "This pull request was created automatically."
