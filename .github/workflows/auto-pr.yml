@@ -14,8 +14,4 @@ jobs:
       - run: sudo apt-get install -y gh
       - run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
       - run: |
-          gh pr create \
-            --base main \
-            --head "$BRANCH" \
-            --title "Auto PR"
-            --body "This pull request was created automatically."
+          gh pr create --title "Auto PR" --body "This pull request was created automatically."
